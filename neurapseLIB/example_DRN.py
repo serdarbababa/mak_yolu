@@ -58,6 +58,14 @@ def DRN_Const_driver(N, exci_frac, connect_frac):
     print('W: ', W)
     print('Tau: ', Tau)
 
+    plt.plot(W)
+    plt.title("W")
+    plt.show()
+
+    plt.plot(Tau)
+    plt.title("Tau")
+    plt.show()
+
     A = DRN_Const(Fanout, W, Tau_d=Tau, Tau=15e-3, I0=1e-12, N=N, T=20000, delta_t=1e-4)
     # Creating poisson spike trains as inputs for first 25 neurons
     # Note: Originally this was meant for poisson potential spikes, 
@@ -65,7 +73,7 @@ def DRN_Const_driver(N, exci_frac, connect_frac):
     T = 20000
     Tau = 15e-3
     delta_t = 1e-4
-    n_out = 25
+    n_out = 5
     I0 = 1e-12
     ST = POISSON_SPIKE_TRAIN(T=int(T*delta_t), delta_t=delta_t, lamb=100, n_out=n_out)
     V_poi_spikes = ST.V_train[:,:-1]
@@ -74,8 +82,8 @@ def DRN_Const_driver(N, exci_frac, connect_frac):
     reference_alpha = np.zeros(T)
     for t in range(3*int(Tau//delta_t)):
         reference_alpha[t] = np.exp(-t*delta_t/Tau) - np.exp(-4*t*delta_t/Tau)
-    # plt.plot(reference_alpha)
-    # plt.show()
+    plt.plot(reference_alpha)
+    plt.show()
     
     I_poi = np.zeros(shape=(n_out, T))
     for idx in range(n_out):
@@ -288,5 +296,6 @@ def DRN_Plastic_driver(N, exci_frac, connect_frac):
     plt.ylabel('freq Rit')
     plt.show()
 
-# DRN_const_driver(N=200, exci_frac=0.8, connect_frac=0.1)
-DRN_Plastic_driver(N=200, exci_frac=0.8, connect_frac=0.1)
+DRN_Const_driver(N=5, exci_frac=0.5, connect_frac=0.5)
+
+#DRN_Plastic_driver(N=25, exci_frac=0.8, connect_frac=0.1)

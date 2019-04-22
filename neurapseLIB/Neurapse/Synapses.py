@@ -171,11 +171,11 @@ class PLASTIC_SYNAPSE_B():
         # print('new w: ', self.w)
         return self.w
 
-'''
-using SYNAPSE and SPIKETRAINS:
+
+#using SYNAPSE and SPIKETRAINS:
 
 import matplotlib.pyplot as plt
-from SpikeTrains import POISSON_SPIKE_TRAIN, RANDOM_SPIKE_TRAIN
+from utils.SpikeTrains import POISSON_SPIKE_TRAIN, RANDOM_SPIKE_TRAIN
 
 n_out = 1
 T = 500*(10**-3)
@@ -189,7 +189,10 @@ w = 500
 I0 = 1*(10**-12)
 tau = 15*(10**-3)
 tau_s = tau/4
-Sy = CONST_SYNAPSE(w, I0, tau, tau_s)
+tau_d=0.1
+
+#w, I0, tau, tau_s, tau_d):
+Sy = CONST_SYNAPSE(w, I0, tau, tau_s,tau_d)
 I = Sy.getI(V, SI, delta_t)
 
 plt.figure()
@@ -205,5 +208,5 @@ plt.plot(list(range(n_t+1)), I[0,:])
 plt.xlabel('time')
 plt.ylabel('I')
 plt.show()
-'''
+
 
