@@ -1,4 +1,4 @@
-<p align="center"><img width="65%" src="media/3-s2.0-B9780124158054000023-f02-10-9780124158054.jpg"/></p>
+<p align="center"><img width="65%" src="media/3-s2.0-B9780124158054000023-f02-10-9780124158054[1].jpg"/></p>
 
 ## 3rd Gen Neural Networks
 Current Deep Learning methods (2nd Gen) set very impressive state of the art results, although the building blocks such as *convolutions etc* are biologically inspired *they still are not as efficient as computations happening at many biological neural networks*.
