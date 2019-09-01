@@ -31,11 +31,18 @@ class LIF():
         Vi = V0
         print(Vi.shape)
         V.append(Vi)
+        Spike = [0]
         for i in range(self.n_t):
             Vi = self.update_fn(Vi, I[:,i].reshape(self.num_neurons, 1)+self.I_synt, self.delta_t)
             V.append(Vi)
+            x=0
+            if(self.fireflag[0]):
+                Spike.append(1)
+            else:
+                Spike.append(0)
+
         V = np.concatenate(V, axis=1)
-        return V
+        return V, Spike
         
     def update_fn(self, Vi, Ii, delta_t):
         self.delta_t = delta_t

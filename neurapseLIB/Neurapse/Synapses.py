@@ -177,6 +177,8 @@ class PLASTIC_SYNAPSE_B():
 import matplotlib.pyplot as plt
 from utils.SpikeTrains import POISSON_SPIKE_TRAIN, RANDOM_SPIKE_TRAIN
 
+
+'''
 n_out = 1
 T = 500*(10**-3)
 delta_t = 0.1*(10**-3)
@@ -210,3 +212,4 @@ plt.ylabel('I')
 plt.show()
 
 
+'''
